@@ -1,1 +1,5 @@
 node_modules
+.cache
+.upm
+last_resp_data.json
+highest_speed.txt
