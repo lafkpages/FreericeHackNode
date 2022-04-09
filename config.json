@@ -12,7 +12,11 @@
     "Accept": "application/vnd.api+json;version=2"
   },
 
-  "default_user": "0a41fabd-f90f-4103-8b47-317ca79c212b",
+  "default_users": [
+    "0a41fabd-f90f-4103-8b47-317ca79c212b",
+    "3a8b3738-530a-4b0f-b0f7-e0307e046985",
+    "0f5beeac-ee1d-4de4-a841-f3b788cb616b"
+  ],
 
   "category": "66f2a9aa-bac2-5919-997d-2d17825c1837",
 

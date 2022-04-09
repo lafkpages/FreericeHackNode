@@ -11,6 +11,9 @@ const USER = (
   process.env.FREERICE_USERID ||
   process.env.FREERICE_USER_ID ||
   process.env.FREERICE ||
+  config.default_users[
+    Math.floor(Math.random() * config.default_users.length)
+  ] ||
   config.default_user
 );
 
