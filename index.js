@@ -19,7 +19,7 @@ const USER = (
 let answer_url = '';
 
 
-let current_question = null;
+let current_question = new Array(config.threads);
 let initial_level = 1;
 
 
@@ -71,7 +71,7 @@ class Question
 }
 
 
-async function newGame(level=initial_level)
+async function newGame(level=initial_level, i=0)
 {
   let resp;
   try {
@@ -96,12 +96,12 @@ async function newGame(level=initial_level)
 
   answer_url = resp.data.data.links.self + '/answer?lang=en';
 
-  current_question = Question.fromJson(resp.data);
+  current_question[i] = Question.fromJson(resp.data);
 
   return level;
 }
 
-async function submitQuestion(q, a)
+async function submitQuestion(q, a, i=0)
 {
   let resp;
   try {
@@ -123,7 +123,7 @@ async function submitQuestion(q, a)
 
   last_req_status = resp.status;
 
-  current_question = Question.fromJson(resp.data);
+  current_question[i] = Question.fromJson(resp.data);
 
   try {
     return resp.data.data.attributes.userattributes.rice;
@@ -215,30 +215,30 @@ getProfile()
   console.log('Threads:', config.threads);
   console.log('Kill:', config.kill);
   console.log('Verbose:', config.verbose, '\n');
-  
+
   process.stdout.write('Rice'.padEnd(column_size));
   process.stdout.write('Speed');
 
   process.stdout.write('\n');
-  
+
   // Bot code
   for (let i = 0; i < config.threads; i++)
-    newGame()
+    newGame(undefined, i)
     .then(async level => {
       while (true)
       {
-        const answer = current_question.solve();
+        const answer = current_question[i].solve();
 
         const now = new Date();
 
         let rice;
         try {
-          rice = await submitQuestion(current_question, answer);
+          rice = await submitQuestion(current_question, answer, i);
         } catch (err) {
           writeResp(err);
-  
+
           checkBlocked();
-  
+
           if (err && err.response && err.response.data)
           {
             const resp = err.response.data;
@@ -272,15 +272,17 @@ getProfile()
         if (!start_rice)
           start_rice = rice;
 
-        const new_rice = rice - start_rice;
-        const time = now - start_time;
-        const speed = new_rice / time;
-        const rps = (speed * 1000).toFixed(2);
-
-        highestSpeed(speed, rps);
-
         if (i == 0 && rice)
+        {
+          const new_rice = rice - start_rice;
+          const time = now - start_time;
+          const speed = new_rice / time;
+          const rps = (speed * 1000).toFixed(2);
+  
+          highestSpeed(speed, rps);
+  
           process.stdout.write(`${' '.repeat(column_size * 2)}\r${rice.toString().padEnd(column_size)}${rps} rps`);
+        }
       }
     })
     .catch(err => {
