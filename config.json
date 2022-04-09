@@ -1,0 +1,31 @@
+{
+  "EXIT_BLOCKED": 2,
+  "EXIT_SIGINT": 3,
+  "EXIT_ERR_NEWGAME": 4,
+  "EXIT_UNCAUGHT": 5,
+  "EXIT_PROFILE": 6,
+
+  "default_headers": {
+    "Content-Type": "application/json",
+    "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36",
+    "Origin": "https://freerice.com",
+    "Accept": "application/vnd.api+json;version=2"
+  },
+
+  "default_user": "0a41fabd-f90f-4103-8b47-317ca79c212b",
+
+  "category": "66f2a9aa-bac2-5919-997d-2d17825c1837",
+
+  "http_timeout": 3000,
+
+  "kill": true,
+  "kill_cmd": "kill 1",
+
+  "verbose": true,
+
+  "threads": 1,
+
+  "fetch_profiles": true,
+
+  "log_highest_speed": false
+}
