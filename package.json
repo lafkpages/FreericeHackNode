@@ -11,6 +11,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "1secmail-api": "^1.0.1",
     "axios": "^0.26.1"
   }
 }

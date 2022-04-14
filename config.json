@@ -1,9 +1,9 @@
 {
-  "EXIT_BLOCKED": 2,
-  "EXIT_SIGINT": 3,
-  "EXIT_ERR_NEWGAME": 4,
-  "EXIT_UNCAUGHT": 5,
-  "EXIT_PROFILE": 6,
+  "EXIT_BLOCKED": 0,
+  "EXIT_SIGINT": 0,
+  "EXIT_ERR_NEWGAME": 0,
+  "EXIT_UNCAUGHT": 0,
+  "EXIT_PROFILE": 0,
 
   "default_headers": {
     "Content-Type": "application/json",
@@ -13,7 +13,11 @@
   },
 
   "default_users": [
-    "0a41fabd-f90f-4103-8b47-317ca79c212b",
+    "5bd2ba4e-ed08-4fc8-8f2f-c56ac0c15f68",
+    "5bd2ba4e-ed08-4fc8-8f2f-c56ac0c15f68",
+    "5bd2ba4e-ed08-4fc8-8f2f-c56ac0c15f68",
+    "5bd2ba4e-ed08-4fc8-8f2f-c56ac0c15f68",
+
     "3a8b3738-530a-4b0f-b0f7-e0307e046985",
     "0f5beeac-ee1d-4de4-a841-f3b788cb616b"
   ],
@@ -22,7 +26,7 @@
 
   "http_timeout": 3000,
 
-  "kill": true,
+  "kill": false,
   "kill_cmd": "kill 1",
 
   "verbose": true,

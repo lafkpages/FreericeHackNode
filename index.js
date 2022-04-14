@@ -2,6 +2,7 @@ const config = require('./config.json');
 const axios = require('axios');
 const { execSync } = require('child_process');
 const fs = require('fs');
+const { TempMail } = require('1secmail-api');
 
 
 // User ID
@@ -281,7 +282,7 @@ getProfile()
           const time = now - start_time;
           const speed = new_rice / time;
           const rps = (speed * 1000).toFixed(2);
-  
+
           highestSpeed(speed, rps);
   
           process.stdout.write(`${' '.repeat(column_size * 2)}\r${rice.toString().padEnd(column_size)}${rps} rps`);
