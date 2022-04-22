@@ -34,7 +34,8 @@ const column_size = config.column_size || 12;
 
 
 let start_rice = 0;
-const start_time = new Date();
+let start_time = null;
+let restard_speed = false;
 
 
 let highest_speed = 0;
@@ -276,6 +277,9 @@ getProfile()
         if (!start_rice)
           start_rice = rice;
 
+        if (!start_time)
+          start_time = new Date();
+
         if (i == 0 && rice)
         {
           const new_rice = rice - start_rice;
@@ -286,6 +290,14 @@ getProfile()
           highestSpeed(speed, rps);
   
           process.stdout.write(`${' '.repeat(column_size * 2)}\r${rice.toString().padEnd(column_size)}${rps} rps`);
+
+          if (restard_speed)
+          {
+            restard_speed = false;
+
+            start_rice = rice;
+            start_time = new Date();
+          }
         }
       }
     })
@@ -312,6 +324,10 @@ getProfile()
   process.exit(config.EXIT_PROFILE);
 });
 
+
+setInterval(() => {
+  restart_speed = true;
+}, 5000);
 
 
 process.on('SIGINT', () => {
