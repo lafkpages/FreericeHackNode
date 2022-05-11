@@ -10,7 +10,7 @@ export C=0
 
 main () {
   if [ "$1" = "main" ]; then
-    echo Running $C/$THREADS threads
+    echo Running $C/$THREADS bash threads
     echo
   fi
 

@@ -13,11 +13,12 @@
   },
 
   "default_users": [
-    "5bd2ba4e-ed08-4fc8-8f2f-c56ac0c15f68",
-    "5bd2ba4e-ed08-4fc8-8f2f-c56ac0c15f68",
-    "5bd2ba4e-ed08-4fc8-8f2f-c56ac0c15f68",
-    "5bd2ba4e-ed08-4fc8-8f2f-c56ac0c15f68",
-
+    "8d463944-515b-4059-afbe-1ab8deb8d1d3",
+    "8d463944-515b-4059-afbe-1ab8deb8d1d3",
+    "8d463944-515b-4059-afbe-1ab8deb8d1d3",
+    "8d463944-515b-4059-afbe-1ab8deb8d1d3",
+    "8d463944-515b-4059-afbe-1ab8deb8d1d3",
+    
     "ffd32226-9c81-4e93-ba23-bde23721f713"
   ],
 
@@ -25,7 +26,7 @@
 
   "http_timeout": 3000,
 
-  "kill": false,
+  "kill": true,
   "kill_cmd": "kill 1",
 
   "verbose": true,

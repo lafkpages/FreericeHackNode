@@ -1,4 +1,4 @@
-run = [ "bash", "main.sh" ]
+run = [ "bash", "main.sh", "1" ]
 entrypoint = "main.sh"
 
 [nix]
